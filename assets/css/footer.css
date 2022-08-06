@@ -1,0 +1,13 @@
+footer {
+  background-color: grey;
+  height: 10vh;
+  color: white;
+  font-family: sans-serif;
+  display: flex;
+  align-items: center;
+  font-size: 1.2rem; }
+  footer ul {
+    list-style-type: none; }
+  footer a {
+    text-decoration: none;
+    color: white; }

@@ -7,15 +7,27 @@ module.exports.profile = function(req, res){
 }
 
 module.exports.signUp = function(req,res){
-    return res.render('user_sign_up',{
-        title: 'Z-social | Sign Up'
-    });
+
+    if(req.isAuthenticated()){
+        return res.redirect('/users/profile');
+    }else{
+        return res.render('user_sign_up',{
+            title: 'Z-social | Sign Up'
+        });
+    }
+    
 }
 
 module.exports.signIn = function(req,res){
-    return res.render('user_sign_in',{
-        title: 'Z-social | Sign In'
-    });
+    if(req.isAuthenticated()){
+        return res.redirect('/users/profile');
+    }else{
+        return res.render('user_sign_in',{
+            title: 'Z-social | Sign In'
+        });
+    }
+
+    
 }
 
 // get the sign in data
@@ -41,5 +53,15 @@ module.exports.create = function(req,res){
 
 // sign in and create a session for the user
 module.exports.createSession = function(req,res){
-    // TODO later
+    return res.redirect('/');
+}
+
+module.exports.destroySession = function(req, res){
+    req.logout(function(user, err){
+        if(err) return next(err);
+
+        return res.redirect('/');
+    });
+
+    
 }

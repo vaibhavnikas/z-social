@@ -1,0 +1,26 @@
+header{
+    height: 5vh;
+    display: flex;
+    background-color: #00a7f5;
+    padding: 0px 20px;
+    justify-content: space-between;
+    align-items: center;
+    font-family: sans-serif;
+    color: white;
+    font-size: 1.5rem;
+
+    span{
+        font-weight: 700;
+    }
+
+    ul{
+        display: flex;
+        list-style-type: none;
+        justify-content: space-between;
+        width: 9vw;
+        a{
+            text-decoration: none;
+            color: white;
+        }
+    }
+}
