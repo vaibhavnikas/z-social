@@ -1,6 +1,7 @@
 const Post = require('../models/post');
+const User = require('../models/user');
 
-module.exports.home = async function(req, res){
+module.exports.home = function(req, res){
 
 
     // Post.find({},function(err,posts){
@@ -22,38 +23,18 @@ module.exports.home = async function(req, res){
         }
     })
     .exec(function(err,posts){
-        if(err){console.log('error in finding posts');return;}
+        
+        User.find({},function(err, users){
 
-        return res.render('home', {
-            title: "Z-Social | Home",
-            posts: posts
+            return res.render('home', {
+                title: "Z-Social | Home",
+                posts: posts,
+                all_users: users
+            });
+
         });
+        
     });
-
-
-    // use this syntax if the above method doesn't work 
-    // try{
-    //     // populate the user of each post and likes also
-    //    let posts = await Post.find({})
-    //    .sort('-createdAt')
-    //    .populate('user')
-    //    .populate({
-    //        path: 'comments',
-    //        populate: {
-    //            path: 'user'
-    //        }
-    //    });
-    //    console.log(posts);
-    //    return res.render('home', {
-    //        title: "Z-Social | Home",
-    //        posts:  posts
-    //    });
-    
-    // }catch(err){
-    //    console.log('Error', err);
-    //    return;
-    // }
-
-    
+ 
 }
 
