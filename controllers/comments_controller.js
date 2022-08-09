@@ -17,6 +17,18 @@ module.exports.create = async function(req,res){
             post.save();
         }
 
+        // if(req.xhr){
+            
+        //     return res.status(200).json({
+        //         data: {
+        //             comment : comment,
+        //             post: post,
+        //             username: req.user.name
+        //         },
+        //         message: "Comment Added!"
+        //     });
+        // }
+
         req.flash('success', 'Comment Published');
         res.redirect('/'); 
     }catch(err){
