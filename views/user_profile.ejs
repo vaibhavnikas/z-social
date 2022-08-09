@@ -1,6 +1,8 @@
     <link rel="stylesheet" href="/css/user_profile.css">
     
 
+    <img src="<%= user.avatar %>" alt="<%= user.name %>">
+
     <% if(user.id == profile_user.id){ %>
         <!-- if the profile belongs to the logged in user then show the form -->
 
