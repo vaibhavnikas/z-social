@@ -1,5 +1,6 @@
 const Comment = require('../models/comment');
 const Post = require('../models/post');
+const commentsMailer = require('../mailers/comments_mailer');
 
 module.exports.create = async function(req,res){
     
@@ -15,6 +16,10 @@ module.exports.create = async function(req,res){
         if(post){
             post.comments.push(comment);
             post.save();
+
+            comment = await comment.populate('user', 'name email');
+            // not using the passportGoogle strategy due to safety concerns regarding credentials
+            // commentsMailer.newComment(comment);
         }
 
         // if(req.xhr){
@@ -32,6 +37,7 @@ module.exports.create = async function(req,res){
         req.flash('success', 'Comment Published');
         res.redirect('/'); 
     }catch(err){
+        console.log(err);
         req.flash('error', err);
         return res.redirect('back');
     }
