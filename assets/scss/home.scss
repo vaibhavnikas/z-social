@@ -1,7 +1,7 @@
 #home-container{
     display: flex;
     background-color: coral;
-    height: 100%;
+    overflow: scroll;
 
     #feed-posts{
         width: 70%;
@@ -13,14 +13,38 @@
         }
     }
 
-    #user-friends{
+    #user-display{
         width: 30%;
         padding: 10px;
         border-left: 1px solid lightgrey;
 
         a{
             text-decoration: none;
-            color:midnightblue;
+            color: midnightblue;
+            padding: 2px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        p{
+            position: relative;
+        }
+
+        #user-friends{
+            
+            #remove-friend{
+                color: black;
+                background-color: white;
+                padding: 2px;
+                border: 1px solid black;
+                position: absolute;
+                top: 0px;
+                left: 8vw;
+            }
+
+        }
+
+        #user-list{
+            margin-top: 50px;
         }
     }
 }

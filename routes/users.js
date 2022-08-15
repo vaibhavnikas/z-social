@@ -3,6 +3,7 @@ const router = express.Router();
 const passport = require('passport');
 
 const usersController = require('../controllers/users_controller');
+const friendshipController = require('../controllers/friendship_controller');
 
 router.get('/profile/:id', passport.checkAuthentication, usersController.profile);
 router.post('/update/:id', passport.checkAuthentication, usersController.update);
@@ -23,6 +24,6 @@ router.get('/sign-out', usersController.destroySession);
 router.get('/auth/google', passport.authenticate('google', {scope: ['profile', 'email']}));
 router.get('/auth/google/callback', passport.authenticate('google', {failureRedirect: '/users/sign-in'}), usersController.createSession);
 
-
+router.get('/toogle-friend/:fid', friendshipController.toogleFriend);
 
 module.exports = router;

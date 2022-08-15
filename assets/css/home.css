@@ -1,17 +1,31 @@
 #home-container {
   display: flex;
   background-color: coral;
-  height: 100%; }
+  overflow: scroll; }
   #home-container #feed-posts {
     width: 70%;
     padding: 10px; }
     #home-container #feed-posts a {
       text-decoration: none;
       color: midnightblue; }
-  #home-container #user-friends {
+  #home-container #user-display {
     width: 30%;
     padding: 10px;
     border-left: 1px solid lightgrey; }
-    #home-container #user-friends a {
+    #home-container #user-display a {
       text-decoration: none;
-      color: midnightblue; }
+      color: midnightblue;
+      padding: 2px;
+      font-family: Arial, Helvetica, sans-serif; }
+    #home-container #user-display p {
+      position: relative; }
+    #home-container #user-display #user-friends #remove-friend {
+      color: black;
+      background-color: white;
+      padding: 2px;
+      border: 1px solid black;
+      position: absolute;
+      top: 0px;
+      left: 8vw; }
+    #home-container #user-display #user-list {
+      margin-top: 50px; }

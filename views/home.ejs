@@ -21,14 +21,29 @@
     </section>
 
 
-    <section id="user-friends">
-        <h4>Friends</h4>
+    <section id="user-display">
+        <div id="user-friends">
+            <h4>Friends</h4>
 
-        <%for(u of all_users){%>
-            <p>
-                <a href="/users/profile/<%= u.id %>"><%= u.name %></a>
-            </p>
-        <%}%>
+            <%for(friend of friends){%>
+                <p>
+                    <a href="/users/profile/<%= friend.id %>"><%= friend.name %></a>
+
+                    <a id="remove-friend" href="/users/toogle-friend/<%= friend.id %>">Remove Friend</a>
+                </p>
+            <%}%>
+            
+        </div>
+
+        <div id="user-list">
+            <h4>All Users</h4>
+
+            <%for(u of all_users){%>
+                <p>
+                    <a href="/users/profile/<%= u.id %>"><%= u.name %></a>
+                </p>
+            <%}%>
+        </div>
     </section>
 </div>
 
