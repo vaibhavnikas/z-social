@@ -38,7 +38,8 @@ const production = {
     morgan: {
         mode: 'combined',
         options: {stream: accessLogStream}
-    }
+    },
+    mongoDB_URL: process.env.zsocial_mongodb_url
 }
 
 module.exports = eval(process.env.zsocial_environment == undefined? development : eval(process.env.zsocial_environment));

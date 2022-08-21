@@ -2,8 +2,10 @@
 const mongoose = require('mongoose');
 const env = require('./environment');
 
+const mongoDB_URL =  env.mongoDB_URL || `mongodb://localhost/${env.db}`;
+
 // connect to mongoose
-mongoose.connect(`mongodb://localhost/${env.db}`,{
+mongoose.connect(mongoDB_URL,{
   useNewUrlParser: true, 
   useUnifiedTopology: true,
   family: 4,
