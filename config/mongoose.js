@@ -1,8 +1,9 @@
 // require the library
 const mongoose = require('mongoose');
+const env = require('./environment');
 
 // connect to mongoose
-mongoose.connect('mongodb://localhost/z-social_development',{
+mongoose.connect(`mongodb://localhost/${env.db}`,{
   useNewUrlParser: true, 
   useUnifiedTopology: true,
   family: 4,
